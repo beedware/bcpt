@@ -2,7 +2,6 @@
 using namespace std;
 
 #define rep(i, a, b) for(int i = a; i < (b); ++i)
-typedef long long ll;
 
 int main() {
     cin.tie(0)->sync_with_stdio(0);
@@ -38,7 +37,7 @@ int main() {
             if (!res.empty() && res.back() == c)
                 continue;
 
-            int maxOther = (c == maxChar ? max2 : max1);
+            int maxOther = c == maxChar ? max2 : max1;
 
             if (2 * (mp[c] - 1) > m)
                 continue;
@@ -59,5 +58,4 @@ int main() {
     }
 
     cout << res << '\n';
-    return 0;
 }

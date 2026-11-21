@@ -9,34 +9,28 @@ int main() {
     cin.exceptions(cin.failbit);
 
     ll n; cin >> n;
-    
+
     ll sum = (n + 1) * n / 2;
 
     if (sum % 2 != 0) {
-        cout << "NO" << endl;
+        cout << "NO\n";
         return 0;
     }
 
     cout << "YES\n";
     sum /= 2;
     vi lhs, rhs;
-    for (int i = n; i > 0; --i){
-        if (sum - i >= 0) {
+    for (int i = n; i > 0; --i) {
+        if (sum >= i) {
             lhs.push_back(i);
             sum -= i;
-            continue;
+        } else {
+            rhs.push_back(i);
         }
-        rhs.push_back(i);
     }
-    cout << lhs.size() << "\n";
-    for (const auto& num : lhs) {
-        cout << num << " ";
+    for (const auto* group : {&lhs, &rhs}) {
+        cout << group->size() << '\n';
+        for (int num : *group) cout << num << ' ';
+        cout << '\n';
     }
-    cout << "\n";
-    cout << rhs.size() << "\n";
-    for (const auto& num : rhs) {
-        cout << num << " ";
-    }
-    cout << "\n";
-    return 0;
 }

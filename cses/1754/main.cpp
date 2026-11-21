@@ -10,15 +10,11 @@ int main() {
     int t; cin >> t;
     while (t--) {
         ll a, b; cin >> a >> b;
-        ll tmp = a;
-        a = min(a, b);
-        b = max(tmp, b);
+        if (a > b) swap(a, b);
         if ((a + b) % 3 == 0 && b <= 2 * a) {
             cout << "YES\n";
         } else {
             cout << "NO\n";
         }
     }
-
-    return 0;
 }

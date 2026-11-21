@@ -9,7 +9,6 @@ array <bool, 15> up_diags {};
 array <bool, 15> down_diags {};
 int ans = 0;
 
-
 void solve(int r) {
     if (r == 8) {
         ans++;
@@ -38,13 +37,10 @@ void solve(int r) {
 int main() {
     cin.tie(0)->sync_with_stdio(0);
     cin.exceptions(cin.failbit);
-    
-    rep(i, 0, 8)
-        cin >> board[i];
+
+    for (auto& row : board) cin >> row;
 
     solve(0);
 
-    cout << ans << endl;
-
-    return 0;
+    cout << ans << '\n';
 }

@@ -24,20 +24,14 @@ int main() {
     while (i < n && j < m) {
         if (as[i] - k <= bs[j] && bs[j] <= as[i] + k) {
             res++;
-            i++; j++;
-            continue;
-        }
-        if (as[i] - k > bs[j]) {
-            j++;
-            continue;
-        }
-        if(bs[j] > as[i] + k) {
             i++;
-            continue;
+            j++;
+        } else if (as[i] - k > bs[j]) {
+            j++;
+        } else {
+            i++;
         }
     }
 
-    cout << res << endl;
-
-    return 0;
+    cout << res << '\n';
 }

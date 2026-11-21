@@ -8,14 +8,12 @@ int main() {
     cin.exceptions(cin.failbit);
 
     int n; cin >> n;
-    
-    const ll MOD = 1e9 + 7;
+
+    constexpr ll MOD = 1'000'000'007;
 
     ll ans = 1;
     for (int p = 0; p < n; p++) {
-       ans = (ans * 2) % MOD;
+        ans = (ans * 2) % MOD;
     }
-    cout << ans << endl;
-
-    return 0;
+    cout << ans << '\n';
 }

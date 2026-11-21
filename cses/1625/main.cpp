@@ -43,5 +43,5 @@ int main() {
 
     cin >> path;
     search(1, 1, 1);
-    cout << total << "\n";
+    cout << total << '\n';
 }

@@ -8,7 +8,7 @@ int main() {
     cin.tie(0)->sync_with_stdio(0);
     cin.exceptions(cin.failbit);
 
-    int n; cin >> n;    
+    int n; cin >> n;
     vector<vi> grid(n, vi(n));
 
     rep(r, 0, n) {
@@ -26,6 +26,4 @@ int main() {
         }
         cout << "\n";
     }
-
-    return 0;
 }

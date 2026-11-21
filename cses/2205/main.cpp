@@ -17,12 +17,10 @@ int main() {
         for (int i = len - 1; i >= 0; i--) {
             new_codes.push_back('1' + codes[i]);
         }
-        codes = new_codes;
-    } 
-
-    for (const string& code : codes) {
-        cout << code << endl;
+        codes.swap(new_codes);
     }
 
-    return 0;
+    for (const string& code : codes) {
+        cout << code << '\n';
+    }
 }

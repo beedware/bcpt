@@ -9,7 +9,7 @@ int main() {
 
     int n, m; cin >> n >> m;
     vector<vector<char>> grid(n, vector<char>(m));
-    
+
     rep(i, 0, n) {
         string line; cin >> line;
         rep(j, 0, m) {
@@ -23,17 +23,12 @@ int main() {
                 cout << "IMPOSSIBLE\n";
                 return 0;
             }
-            char choice = *allow.begin();
-            grid[i][j] = choice;
+            grid[i][j] = *allow.begin();
         }
     }
 
     for (const auto& row : grid) {
-        for (const auto& colour : row) {
-            cout << colour;
-        }
-        cout << endl;
+        for (char colour : row) cout << colour;
+        cout << '\n';
     }
-
-    return 0;
 }

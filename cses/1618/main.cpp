@@ -5,7 +5,7 @@ int main() {
     cin.tie(0)->sync_with_stdio(0);
     cin.exceptions(cin.failbit);
 
-    int n; cin >> n;    
+    int n; cin >> n;
 
     int ans = 0;
     while (n > 0) {
@@ -13,7 +13,5 @@ int main() {
         ans += n;
     }
 
-    cout << ans << endl;
-
-    return 0;
+    cout << ans << '\n';
 }

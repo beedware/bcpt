@@ -5,7 +5,7 @@ int main() {
     cin.tie(0)->sync_with_stdio(0);
     cin.exceptions(cin.failbit);
 
-    string s; cin >> s;    
+    string s; cin >> s;
     int n = s.size();
 
     int cur = 1;
@@ -16,7 +16,5 @@ int main() {
         res = max(res, cur);
     }
 
-    cout << res << endl;
-
-    return 0;
+    cout << res << '\n';
 }

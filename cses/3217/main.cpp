@@ -9,7 +9,7 @@ int main() {
     cin.tie(0)->sync_with_stdio(0);
     cin.exceptions(cin.failbit);
 
-    int n; cin >> n;    
+    int n; cin >> n;
     vector<vi> grid(n, vi(n, -1));
     vi dr = {-2, -2, -1, -1,  1, 1,  2, 2};
     vi dc = {-1,  1, -2,  2, -2, 2, -1, 1};
@@ -33,11 +33,7 @@ int main() {
     }
 
     for (const auto& row : grid) {
-        for (const auto& move : row) {
-            cout << move << " ";
-        }
-        cout << endl;
+        for (int move : row) cout << move << ' ';
+        cout << '\n';
     }
-
-    return 0;
 }
