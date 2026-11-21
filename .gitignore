@@ -5,6 +5,9 @@
 !/*/**/Main.java
 !/*/**/main.c
 !/cpp/**
+!/c/Makefile
+!/java/Makefile
+!/python/Makefile
 
 ### C ###
 # Prerequisites
