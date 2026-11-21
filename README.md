@@ -4,6 +4,20 @@ This is my personal repository for practicing competitive programming and
 maintaining reusable templates for contests. I use it to work through problems,
 revisit algorithms and data structures, and refine my contest setup as I learn.
 
+## Practice Solutions
+
+Keep solutions under platform or contest folders, such as `cses/1069/` or
+`codeforces/<round>/<problem>/`. Outside `cpp/`, Git picks up only `main.cpp`,
+`main.py`, `Main.java`, and `main.c` in these folders, even when they are nested.
+Build tools live in `cpp/`; local binaries, samples, and scratch files are ignored.
+
+```sh
+make -C cses/1069 -f ../../cpp/Makefile build
+make -C cses/1069 -f ../../cpp/Makefile run < sample.in
+```
+
+To start a new problem, create its directory and copy in `cpp/main.cpp`.
+
 ## Supported Languages
 
 The Nix development shell (`nix develop`) provides these languages and toolchains:
