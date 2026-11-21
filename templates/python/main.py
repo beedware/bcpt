@@ -4,7 +4,6 @@ readline = sys.stdin.buffer.readline
 
 
 def solve():
-    # Read input and write the answer.
     pass
 
 

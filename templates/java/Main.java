@@ -29,7 +29,6 @@ public class Main {
     }
 
     static void solve(FastInput in, PrintWriter out) throws IOException {
-        // Read input and write the answer.
     }
 
     public static void main(String[] args) throws IOException {
