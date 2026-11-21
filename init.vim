@@ -4,6 +4,8 @@ set et
 
 ca Hash w !cpp -dD -P -fpreprocessed \| tr -d '[:space:]' \| md5sum \| cut -c-6
 
-set bg=dark
 colorscheme vim
-highlight CursorLine guibg=#252525 gui=NONE " #eeeeee
+set bg=dark
+highlight CursorLine guibg=#252525 gui=NONE
+" set bg=light
+" highlight CursorLine guibg=#eeeeee gui=NONE
