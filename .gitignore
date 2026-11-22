@@ -5,6 +5,7 @@
 !/*/**/Main.java
 !/*/**/main.c
 !/templates/**
+/templates/*/err/
 
 ### C ###
 # Prerequisites
