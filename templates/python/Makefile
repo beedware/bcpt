@@ -26,7 +26,6 @@ ifneq ($(NON_DIGITS),)
 $(error Test number must contain only digits)
 endif
 
-# Consume the numeric command-line goal and prepare its error log before running.
 .PHONY: $(TEST) check-test
 $(TEST): ; @:
 
