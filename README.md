@@ -19,11 +19,11 @@ The Nix development shell (`nix develop`) provides these languages and toolchain
 
 From a directory using one of the template Makefiles:
 
-- `make run 1` runs the program with `in/1` as input and prints its output.
-- `make validate 1` runs the same test and compares its output exactly to `out/1`,
-  showing a diff and failing if they differ.
-- Both numbered commands save stderr to `err/1`, replacing the previous log.
-  `make run` without a number still reads from standard input.
+- `make build` builds the program or checks Python syntax.
+- `make run 1` reads from `in/1`. If `out/1` exists, it compares the output exactly,
+  showing a highlighted diff and failing on a mismatch. Otherwise, it prints the
+  program's output. Stderr is saved to `err/1`, replacing the previous log.
+- `make run` without a number reads from standard input.
 
 ## References
 
