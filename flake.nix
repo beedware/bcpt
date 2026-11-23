@@ -17,6 +17,10 @@
             packages = with pkgs; [ gcc jdk pypy3 util-linux ];
 
             shellHook = ''
+              if [ -n "''${BASH_VERSION:-}" ] && type complete >/dev/null 2>&1; then
+                source ${pkgs.bash-completion}/share/bash-completion/bash_completion
+              fi
+
               alias nvim='NVIM_APPNAME=cimp nvim'
               alias myg++='g++ -L${pkgs.glibc.static}/lib -x c++ -std=gnu++23 -Wall -O2 -static -pipe -g'
               alias judgeg++='g++ -L${pkgs.glibc.static}/lib -x c++ -std=gnu++23 -Wall -O2 -static -pipe -DONLINE_JUDGE -DDOMJUDGE'
