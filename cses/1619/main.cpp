@@ -1,35 +1,32 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define rep(i, a, b) for(int i = a; i < (b); ++i)
 #define all(x) begin(x), end(x)
-typedef vector<int> vi;
+typedef pair<int, int> pii;
 
 int main() {
     cin.tie(0)->sync_with_stdio(0);
     cin.exceptions(cin.failbit);
 
     int n; cin >> n;
-    vi as(n);
-    vi ds(n);
-    rep(i, 0, n) {
+
+    vector<pii> es;
+
+    while (n--) {
         int a, b; cin >> a >> b;
-        as[i] = a; ds[i] = b;
+        es.emplace_back(a,  1);
+        es.emplace_back(b, -1);
     }
 
-    sort(all(as)); sort(all(ds));
-    int res = 0, total = 0;
-    int i = 0, j = 0;
-    while (i < n && j < n) {
-        if (as[i] < ds[j]) {
-            ++total; ++i;
-        } else {
-            --total; ++j;
-        }
-        res = max(res, total);
+    sort(all(es));
+
+    int high = 0, total = 0;
+    for (auto& [_, v] : es) {
+        total += v;
+        high = max(high, total);
     }
 
-    cout << res << endl;
+    cout << high << endl;
 
     return 0;
 }
