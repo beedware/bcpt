@@ -32,6 +32,12 @@
             shellHook = ''
               if [ -n "''${BASH_VERSION:-}" ] && type complete >/dev/null 2>&1; then
                 source ${pkgs.bash-completion}/share/bash-completion/bash_completion
+                export FZF_CTRL_R_COMMAND= FZF_CTRL_T_COMMAND= FZF_ALT_C_COMMAND=
+                if [[ $- == *i* ]]; then
+                  bind '"\C-r": reverse-search-history'
+                  bind '"\C-t": transpose-chars'
+                  bind '"\ec": capitalize-word'
+                fi
               fi
 
               alias nvim='NVIM_APPNAME=cimp nvim'
