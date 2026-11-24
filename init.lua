@@ -23,11 +23,11 @@ vim.pack.add {
     { src = "https://github.com/igorlfs/nvim-dap-view", version = vim.version.range("1.*") },
     "https://github.com/mfussenegger/nvim-dap-python",
     "https://github.com/mfussenegger/nvim-jdtls",
-    "https://github.com/nyoom-engineering/oxocarbon.nvim",
+    "https://github.com/miikanissi/modus-themes.nvim",
 }
 
 vim.cmd [[
-colorscheme oxocarbon
+colorscheme modus
 ]]
 
 local java_debug_jar = vim.env.JAVA_DEBUG_JAR
