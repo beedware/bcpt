@@ -14,7 +14,16 @@
         in
         {
           default = pkgs.mkShell {
-            packages = with pkgs; [ gcc jdk pypy3 util-linux ];
+            packages = with pkgs; [
+              gcc
+              jdk
+              pypy3
+              util-linux
+              clang-tools
+              ty
+              uv
+              jdt-language-server
+            ];
 
             shellHook = ''
               if [ -n "''${BASH_VERSION:-}" ] && type complete >/dev/null 2>&1; then
