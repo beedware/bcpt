@@ -23,6 +23,10 @@
               ty
               uv
               jdt-language-server
+              tree-sitter
+              curl
+              gnutar
+              gzip
             ];
 
             shellHook = ''
