@@ -1,6 +1,6 @@
 vim.cmd [[
 set cin aw nu rnu cul ic scs sb spr udf nowrap
-set ts=4 sw=4 mouse=a shm+=sI
+set ts=4 sw=4 mouse=a shm+=sI fcs=eob:\ 
 set scl=yes
 set et
 set path+=**
