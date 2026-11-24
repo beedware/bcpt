@@ -10,12 +10,13 @@ vim.cmd([[
 cabbrev Hash w !cpp -dD -P -fpreprocessed \| tr -d '[:space:]' \| md5sum \| cut -c-6
 ]])
 
--- --------------------------------------------------------------------------------
+vim.g.netrw_banner = 0
+--------------------------------------------------------------------------------------------------------------------
 vim.g.mapleader = " "
 vim.pack.add({
     "https://github.com/neovim/nvim-lspconfig",
-    { src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "main" },
-    { src = 'https://github.com/nvim-mini/mini.nvim', version = 'stable' },
+    "https://github.com/nvim-treesitter/nvim-treesitter",
+    "https://github.com/NeogitOrg/neogit",
 })
 
 vim.lsp.enable({
@@ -44,3 +45,15 @@ vim.api.nvim_create_autocmd("FileType", {
 
 vim.keymap.set("n", "<leader>ff", ":find ", { desc = "Find file" })
 vim.keymap.set("n", "<leader>fw", ":grep ", { desc = "Grep" })
+vim.keymap.set("n", "-", ":Ex<CR>", { desc = "File Explorer" })
+vim.keymap.set("n", "<leader>gg", ":Neogit<CR>", { desc = "Show neogit" })
+vim.keymap.set("n", "<leader>tv", "<Cmd>vsplit | terminal<CR><Cmd>startinsert<CR>", { desc = "Vertical terminal" })
+vim.keymap.set("n", "<leader>ts", "<Cmd>split | terminal<CR><Cmd>startinsert<CR>", { desc = "Horizontal terminal" })
+vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
+
+vim.api.nvim_create_autocmd("TextYankPost", {
+  group = vim.api.nvim_create_augroup("HighlightYank", { clear = true }),
+  callback = function()
+    vim.hl.on_yank { higroup = "IncSearch", timeout = 200 }
+  end,
+})
