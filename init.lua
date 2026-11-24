@@ -27,6 +27,7 @@ vim.pack.add {
 }
 
 require("modus-themes").setup { styles = { comments = { italic = false }, keywords = { italic = false } } }
+
 vim.cmd.colorscheme "modus"
 
 local java_debug_jar = vim.env.JAVA_DEBUG_JAR
@@ -56,14 +57,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 local dap = require("dap")
 local dapview = require("dap-view")
-
-for _, name in ipairs {
-    "DapBreakpoint", "DapBreakpointCondition", "DapBreakpointRejected", "DapLogPoint", "DapStopped",
-} do
-    local sign = vim.fn.sign_getdefined(name)[1]
-    sign.texthl = "Normal"
-    vim.fn.sign_define(name, sign)
-end
 
 dapview.setup {
     winbar = {
