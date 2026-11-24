@@ -1,5 +1,5 @@
 CXX := g++
-CXXFLAGS := -O2 -Wall -Wextra -Wshadow -Wfatal-errors -std=gnu++23 -fsanitize=address,undefined -D_GLIBCXX_DEBUG -D_GLIBCXX_DEBUG_PEDANTIC
+CXXFLAGS := -O2 -g -Wall -Wextra -Wshadow -Wfatal-errors -std=gnu++23 -fsanitize=address,undefined -D_GLIBCXX_DEBUG -D_GLIBCXX_DEBUG_PEDANTIC
 PROGRAM := ./main.out
 
 .PHONY: build run

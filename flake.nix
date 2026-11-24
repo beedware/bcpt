@@ -11,6 +11,7 @@
       devShells = nixpkgs.lib.genAttrs systems (system:
         let
           pkgs = import nixpkgs { inherit system; };
+          debugPython = pkgs.python3.withPackages (ps: [ ps.debugpy ]);
         in
         {
           default = pkgs.mkShell {
@@ -20,16 +21,27 @@
               pypy3
               util-linux
               clang-tools
+              vscode-extensions.vadimcn.vscode-lldb
+              debugPython
               ty
               uv
               jdt-language-server
+              vscode-extensions.vscjava.vscode-java-debug
               tree-sitter
               curl
               gnutar
               gzip
             ];
 
+            CODELLDB = "${pkgs.vscode-extensions.vadimcn.vscode-lldb}/share/vscode/extensions/vadimcn.vscode-lldb/adapter/codelldb";
+            DEBUGPY_PYTHON = "${debugPython}/bin/python3";
+
             shellHook = ''
+              for java_debug_jar in ${pkgs.vscode-extensions.vscjava.vscode-java-debug}/share/vscode/extensions/vscjava.vscode-java-debug/server/com.microsoft.java.debug.plugin-*.jar; do
+                export JAVA_DEBUG_JAR="$java_debug_jar"
+              done
+              unset java_debug_jar
+
               if [ -n "''${BASH_VERSION:-}" ] && type complete >/dev/null 2>&1; then
                 source ${pkgs.bash-completion}/share/bash-completion/bash_completion
                 export FZF_CTRL_R_COMMAND= FZF_CTRL_T_COMMAND= FZF_ALT_C_COMMAND=
