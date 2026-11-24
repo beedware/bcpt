@@ -26,9 +26,8 @@ vim.pack.add {
     "https://github.com/miikanissi/modus-themes.nvim",
 }
 
-vim.cmd [[
-colorscheme modus
-]]
+require("modus-themes").setup { styles = { comments = { italic = false }, keywords = { italic = false } } }
+vim.cmd.colorscheme "modus"
 
 local java_debug_jar = vim.env.JAVA_DEBUG_JAR
 vim.lsp.config("jdtls", {
