@@ -5,6 +5,7 @@ set scl=yes
 set et
 set path+=**
 ]]
+vim.cmd [[tnoremap <Esc> <C-\><C-n>]]
 
 vim.cmd [[
 cabbrev Hash w !cpp -dD -P -fpreprocessed \| tr -d '[:space:]' \| md5sum \| cut -c-6
@@ -62,7 +63,6 @@ end, { desc = "Vertical terminal" })
 vim.keymap.set("n", "<leader>ts", function()
     open_terminal("new")
 end, { desc = "Horizontal terminal" })
-vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 
 vim.api.nvim_create_autocmd("TextYankPost", {
   group = vim.api.nvim_create_augroup("HighlightYank", { clear = true }),
