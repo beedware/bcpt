@@ -9,11 +9,11 @@ set path+=**
 vim.cmd([[
 cabbrev Hash w !cpp -dD -P -fpreprocessed \| tr -d '[:space:]' \| md5sum \| cut -c-6
 ]])
-
 --------------------------------------------------------------------------------------------------------------------
-
 vim.g.mapleader = " "
 vim.g.netrw_banner = 0
+vim.opt.guicursor:append("t:block-blinkon0")
+
 vim.pack.add({
     "https://github.com/neovim/nvim-lspconfig",
     "https://github.com/nvim-treesitter/nvim-treesitter",
