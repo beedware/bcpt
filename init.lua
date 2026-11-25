@@ -1,15 +1,11 @@
 vim.cmd [[
-set cin aw nu rnu cul ic scs sb spr udf nowrap
-set ts=4 sw=4 mouse=a shm+=sI fcs=eob:\ 
-set scl=yes
-set et
-set path+=**
+set cin aw nu rnu cul ic scs sb spr udf nowrap et
+set ts=4 sw=4 mouse=a shm+=sI fcs=eob:\  scl=yes path+=**
 ]]
+
 vim.cmd [[tnoremap <Esc> <C-\><C-n>]]
 
-vim.cmd [[
-cabbrev Hash w !cpp -dD -P -fpreprocessed \| tr -d '[:space:]' \| md5sum \| cut -c-6
-]]
+vim.cmd [[ cabbrev Hash w !cpp -dD -P -fpreprocessed \| tr -d '[:space:]' \| md5sum \| cut -c-6 ]]
 --------------------------------------------------------------------------------------------------------------------
 vim.g.mapleader = " "
 vim.g.netrw_banner = 0
