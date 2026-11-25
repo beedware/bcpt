@@ -16,10 +16,10 @@ vim.pack.add({
   "https://github.com/nvim-treesitter/nvim-treesitter",
   "https://github.com/NeogitOrg/neogit",
   "https://github.com/mfussenegger/nvim-dap",
-  { src = "https://github.com/igorlfs/nvim-dap-view", version = vim.version.range("1.*") },
   "https://github.com/mfussenegger/nvim-dap-python",
   "https://github.com/mfussenegger/nvim-jdtls",
   "https://github.com/miikanissi/modus-themes.nvim",
+  { src = "https://github.com/igorlfs/nvim-dap-view", version = vim.version.range("1.*") },
 })
 
 require("modus-themes").setup({ styles = { comments = { italic = false }, keywords = { italic = false } } })
