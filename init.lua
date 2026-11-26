@@ -3,7 +3,13 @@ set cin aw nu rnu cul ic scs sb spr udf nowrap et
 set ts=4 sw=4 mouse=a shm+=sI fcs=eob:\  scl=yes path+=**
 ]]
 
-vim.cmd [[tnoremap <Esc> <C-\><C-n>]]
+vim.cmd [[
+tnoremap <Esc> <C-\><C-n>
+nnoremap <Space>cd :cd %:p:h<CR>
+nnoremap <Space>ff :find<Space>
+nnoremap <Space>fw :grep<Space>
+nnoremap - :Ex<CR>
+]]
 
 vim.cmd [[ cabbrev Hash w !cpp -dD -P -fpreprocessed \| tr -d '[:space:]' \| md5sum \| cut -c-6 ]]
 --------------------------------------------------------------------------------------------------------------------
@@ -128,13 +134,6 @@ local function open_terminal(split)
   vim.fn.jobstart(vim.o.shell, { term = true, cwd = cwd })
   vim.cmd.startinsert()
 end
-
-vim.keymap.set("n", "<leader>tv", function()
-  open_terminal "vnew"
-end, { desc = "Vertical terminal" })
-vim.keymap.set("n", "<leader>ts", function()
-  open_terminal "new"
-end, { desc = "Horizontal terminal" })
 
 vim.api.nvim_create_autocmd("TextYankPost", {
   group = vim.api.nvim_create_augroup("HighlightYank", { clear = true }),
