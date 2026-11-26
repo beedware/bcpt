@@ -8,11 +8,12 @@ int main() {
     cin.exceptions(cin.failbit);
 
     int n; cin >> n;
+
     while (n--) {
         string word; cin >> word;
         int length = sz(word);
         if (length > 10) {
-            cout << word[0] << length - 2 << word[length - 1] << '\n';
+            cout << word.front() << length - 2 << word.back() << '\n';
         } else {
             cout << word << '\n';
         }
