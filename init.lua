@@ -1,30 +1,30 @@
-vim.cmd([[
+vim.cmd [[
 set cin aw nu rnu cul ic scs sb spr udf nowrap et
 set ts=4 sw=4 mouse=a shm+=sI fcs=eob:\  scl=yes path+=**
-]])
+]]
 
-vim.cmd([[tnoremap <Esc> <C-\><C-n>]])
+vim.cmd [[tnoremap <Esc> <C-\><C-n>]]
 
-vim.cmd([[ cabbrev Hash w !cpp -dD -P -fpreprocessed \| tr -d '[:space:]' \| md5sum \| cut -c-6 ]])
+vim.cmd [[ cabbrev Hash w !cpp -dD -P -fpreprocessed \| tr -d '[:space:]' \| md5sum \| cut -c-6 ]]
 --------------------------------------------------------------------------------------------------------------------
 vim.g.mapleader = " "
 vim.g.netrw_banner = 0
-vim.opt.guicursor:append("t:block-blinkon0")
+vim.opt.guicursor:append "t:block-blinkon0"
 
-vim.pack.add({
+vim.pack.add {
   "https://github.com/neovim/nvim-lspconfig",
   "https://github.com/nvim-treesitter/nvim-treesitter",
   "https://github.com/NeogitOrg/neogit",
   "https://github.com/mfussenegger/nvim-dap",
   "https://github.com/mfussenegger/nvim-dap-python",
   "https://github.com/mfussenegger/nvim-jdtls",
-  "https://github.com/nyoom-engineering/oxocarbon.nvim",
+  "https://github.com/olimorris/onedarkpro.nvim",
   { src = "https://github.com/igorlfs/nvim-dap-view", version = vim.version.range("1.*") },
-})
+}
 
-vim.cmd([[
-colorscheme oxocarbon
-]])
+vim.cmd [[ 
+colorscheme onedark_dark 
+]]
 
 local java_debug_jar = vim.env.JAVA_DEBUG_JAR
 vim.lsp.config("jdtls", {
@@ -33,11 +33,11 @@ vim.lsp.config("jdtls", {
   },
 })
 
-vim.lsp.enable({
+vim.lsp.enable {
   "clangd",
   "jdtls",
   "ty",
-})
+}
 vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(event)
     vim.keymap.set("n", "gd", vim.lsp.buf.definition, {
@@ -51,8 +51,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
   end,
 })
 
-local dap = require("dap")
-local dapview = require("dap-view")
+local dap = require "dap"
+local dapview = require "dap-view"
 
 dapview.setup({
   winbar = {
@@ -71,7 +71,7 @@ dap.adapters.codelldb = {
     args = { "--port", "${port}" },
   },
 }
-for _, language in ipairs({ "c", "cpp" }) do
+for _, language in ipairs { "c", "cpp" } do
   dap.configurations[language] = {
     {
       name = "Launch executable",
@@ -102,13 +102,13 @@ vim.keymap.set({ "n", "v" }, "<leader>dk", dapview.hover, { desc = "Debug: hover
 vim.keymap.set("n", "<leader>dv", dapview.virtual_text_toggle, { desc = "Debug: toggle virtual text" })
 vim.keymap.set("n", "<leader>du", dapview.toggle, { desc = "Debug: toggle UI" })
 
-require("nvim-treesitter").install({
+require("nvim-treesitter").install {
   "c",
   "cpp",
   "java",
   "python",
   "nix",
-})
+}
 vim.api.nvim_create_autocmd("FileType", {
   pattern = { "c", "cpp", "java", "python", "nix" },
   callback = function()
@@ -130,10 +130,10 @@ local function open_terminal(split)
 end
 
 vim.keymap.set("n", "<leader>tv", function()
-  open_terminal("vnew")
+  open_terminal "vnew"
 end, { desc = "Vertical terminal" })
 vim.keymap.set("n", "<leader>ts", function()
-  open_terminal("new")
+  open_terminal "new"
 end, { desc = "Horizontal terminal" })
 
 vim.api.nvim_create_autocmd("TextYankPost", {
