@@ -11,15 +11,6 @@ vim.g.mapleader = " "
 vim.g.netrw_banner = 0
 vim.opt.guicursor:append "t:block-blinkon0"
 
-vim.api.nvim_create_autocmd("FileType", {
-  group = vim.api.nvim_create_augroup("DisableSpell", { clear = true }),
-  callback = function()
-    vim.schedule(function()
-      vim.opt_local.spell = false
-    end)
-  end,
-})
-
 vim.pack.add {
   "https://github.com/neovim/nvim-lspconfig",
   "https://github.com/nvim-treesitter/nvim-treesitter",
@@ -27,24 +18,13 @@ vim.pack.add {
   "https://github.com/mfussenegger/nvim-dap",
   "https://github.com/mfussenegger/nvim-dap-python",
   "https://github.com/mfussenegger/nvim-jdtls",
-  "https://github.com/olimorris/onedarkpro.nvim",
+  "https://github.com/miikanissi/modus-themes.nvim",
   { src = "https://github.com/igorlfs/nvim-dap-view", version = vim.version.range("1.*") },
 }
 
-local function apply_theme()
-  local ok, lines = pcall(vim.fn.readfile, vim.fn.expand "~/.config/themer/mode")
-  local mode = ok and vim.trim(lines[1] or "") or "dark"
-  local theme = mode == "light" and "onelight" or "onedark_dark"
-  if vim.g.colors_name ~= theme then
-    vim.cmd.colorscheme(theme)
-  end
-end
+require("modus-themes").setup({ styles = { comments = { italic = false }, keywords = { italic = false } } })
 
-apply_theme()
-vim.api.nvim_create_autocmd("FocusGained", {
-  group = vim.api.nvim_create_augroup("ThemerMode", { clear = true }),
-  callback = apply_theme,
-})
+vim.cmd.colorscheme "modus"
 
 local java_debug_jar = vim.env.JAVA_DEBUG_JAR
 vim.lsp.config("jdtls", {
