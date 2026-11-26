@@ -118,10 +118,6 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
-vim.keymap.set("n", "<leader>cd", ":cd %:p:h<CR>", { desc = "Change to current directory of file" })
-vim.keymap.set("n", "<leader>ff", ":find ", { desc = "Find file" })
-vim.keymap.set("n", "<leader>fw", ":grep ", { desc = "Grep" })
-vim.keymap.set("n", "-", ":Ex<CR>", { desc = "File Explorer" })
 vim.keymap.set("n", "<leader>gg", ":Neogit<CR>", { desc = "Show neogit" })
 
 vim.api.nvim_create_autocmd("TextYankPost", {
