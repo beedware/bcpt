@@ -4,7 +4,7 @@ set ts=4 sw=4 mouse=a shm+=sI fcs=eob:\  scl=yes path+=**
 ]]
 
 vim.cmd [[ cabbrev Hash w !cpp -dD -P -fpreprocessed \| tr -d '[:space:]' \| md5sum \| cut -c-6 ]]
---------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 vim.g.mapleader = " "
 vim.g.netrw_banner = 0
 vim.opt.guicursor:append "t:block-blinkon0"
@@ -13,11 +13,8 @@ vim.pack.add {
   "https://github.com/neovim/nvim-lspconfig",
   "https://github.com/nvim-treesitter/nvim-treesitter",
   "https://github.com/NeogitOrg/neogit",
-  "https://github.com/mfussenegger/nvim-dap",
-  "https://github.com/mfussenegger/nvim-dap-python",
-  "https://github.com/mfussenegger/nvim-jdtls",
   "https://github.com/miikanissi/modus-themes.nvim",
-  { src = "https://github.com/igorlfs/nvim-dap-view", version = vim.version.range("1.*") },
+  "https://github.com/mfussenegger/nvim-dap", "https://github.com/mfussenegger/nvim-dap-python", "https://github.com/mfussenegger/nvim-jdtls", { src = "https://github.com/igorlfs/nvim-dap-view", version = vim.version.range("1.*") },
 }
 
 require("modus-themes").setup({ styles = { comments = { italic = false }, keywords = { italic = false } } })
