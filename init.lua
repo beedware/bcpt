@@ -127,13 +127,6 @@ vim.keymap.set("n", "<leader>ff", ":find ", { desc = "Find file" })
 vim.keymap.set("n", "<leader>fw", ":grep ", { desc = "Grep" })
 vim.keymap.set("n", "-", ":Ex<CR>", { desc = "File Explorer" })
 vim.keymap.set("n", "<leader>gg", ":Neogit<CR>", { desc = "Show neogit" })
-local function open_terminal(split)
-  local file = vim.api.nvim_buf_get_name(0)
-  local cwd = vim.bo.buftype == "" and file ~= "" and vim.fs.dirname(file) or vim.fn.getcwd()
-  vim.cmd(split)
-  vim.fn.jobstart(vim.o.shell, { term = true, cwd = cwd })
-  vim.cmd.startinsert()
-end
 
 vim.api.nvim_create_autocmd("TextYankPost", {
   group = vim.api.nvim_create_augroup("HighlightYank", { clear = true }),
