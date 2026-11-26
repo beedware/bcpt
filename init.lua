@@ -22,9 +22,21 @@ vim.pack.add {
   { src = "https://github.com/igorlfs/nvim-dap-view", version = vim.version.range("1.*") },
 }
 
-vim.cmd [[ 
-colorscheme onedark_dark 
-]]
+local function apply_theme()
+  local ok, lines = pcall(vim.fn.readfile, vim.fn.expand "~/.config/themer/mode")
+  local mode = ok and vim.trim(lines[1] or "") or "dark"
+  local theme = mode == "light" and "onelight" or "onedark_dark"
+  if vim.g.colors_name ~= theme then
+    vim.cmd.colorscheme(theme)
+  end
+end
+
+apply_theme()
+vim.api.nvim_create_autocmd("FocusGained", {
+  group = vim.api.nvim_create_augroup("ThemerMode", { clear = true }),
+  callback = apply_theme,
+})
+
 
 local java_debug_jar = vim.env.JAVA_DEBUG_JAR
 vim.lsp.config("jdtls", {
