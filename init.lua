@@ -18,13 +18,13 @@ vim.pack.add({
   "https://github.com/mfussenegger/nvim-dap",
   "https://github.com/mfussenegger/nvim-dap-python",
   "https://github.com/mfussenegger/nvim-jdtls",
-  "https://github.com/miikanissi/modus-themes.nvim",
+  "https://github.com/nyoom-engineering/oxocarbon.nvim",
   { src = "https://github.com/igorlfs/nvim-dap-view", version = vim.version.range("1.*") },
 })
 
-require("modus-themes").setup({ styles = { comments = { italic = false }, keywords = { italic = false } } })
-
-vim.cmd.colorscheme("modus")
+vim.cmd([[
+colorscheme oxocarbon
+]])
 
 local java_debug_jar = vim.env.JAVA_DEBUG_JAR
 vim.lsp.config("jdtls", {
