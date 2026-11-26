@@ -11,6 +11,15 @@ vim.g.mapleader = " "
 vim.g.netrw_banner = 0
 vim.opt.guicursor:append "t:block-blinkon0"
 
+vim.api.nvim_create_autocmd("FileType", {
+  group = vim.api.nvim_create_augroup("DisableSpell", { clear = true }),
+  callback = function()
+    vim.schedule(function()
+      vim.opt_local.spell = false
+    end)
+  end,
+})
+
 vim.pack.add {
   "https://github.com/neovim/nvim-lspconfig",
   "https://github.com/nvim-treesitter/nvim-treesitter",
@@ -36,7 +45,6 @@ vim.api.nvim_create_autocmd("FocusGained", {
   group = vim.api.nvim_create_augroup("ThemerMode", { clear = true }),
   callback = apply_theme,
 })
-
 
 local java_debug_jar = vim.env.JAVA_DEBUG_JAR
 vim.lsp.config("jdtls", {
