@@ -8,12 +8,12 @@ revisit algorithms and data structures, and refine my contest setup as I learn.
 
 The Nix development shell (`nix develop`) provides these languages and toolchains:
 
-| Language    | Toolchain                   | Version-specific documentation                                         |
-| ----------- | --------------------------- | ---------------------------------------------------------------------- |
-| C23         | GCC 16.2.0 (`-std=gnu23`)   | [C23 reference](https://en.cppreference.com/w/c/23.html)               |
-| C++23       | GCC 16.2.0 (`-std=gnu++23`) | [C++23 reference](https://en.cppreference.com/w/cpp/23.html)           |
-| Java 21     | JDK 21.0.13.0.2+1           | [Java SE 21 documentation](https://docs.oracle.com/en/java/javase/21/) |
-| Python 3.11 | PyPy 7.3.20                 | [Python 3.11 documentation](https://docs.python.org/3.11/)             |
+| Language                                                                                           | Version-specific documentation                                         |
+| -------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| [C23](https://gcc.gnu.org/gcc-16/)                                                                 | [C23 reference](https://en.cppreference.com/c)                         |
+| [C++23](https://gcc.gnu.org/gcc-16/)                                                               | [C++23 reference](https://en.cppreference.com/cpp)                     |
+| [Java 21](https://www.oracle.com/java/technologies/javase/jdk21-0-13-later-archive-downloads.html) | [Java SE 21 documentation](https://docs.oracle.com/en/java/javase/21/) |
+| [Python 3.11](https://buildbot.pypy.org/pypy/)                                                     | [Python 3.11 documentation](https://docs.python.org/3.11/)             |
 
 ## Running Tests
 
