@@ -5,10 +5,6 @@ set ts=4 sw=4 mouse=a shm+=sI fcs=eob:\  scl=yes path+=**
 
 vim.cmd [[
 tnoremap <Esc> <C-\><C-n>
-nnoremap <Space>cd :cd %:p:h<CR>
-nnoremap <Space>ff :find<Space>
-nnoremap <Space>fw :grep<Space>
-nnoremap - :Ex<CR>
 ]]
 
 vim.cmd [[ cabbrev Hash w !cpp -dD -P -fpreprocessed \| tr -d '[:space:]' \| md5sum \| cut -c-6 ]]
