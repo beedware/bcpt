@@ -8,6 +8,7 @@
 !/NWERC/[0-9][0-9][0-9][0-9].pdf
 !/templates/**
 /templates/*/err/
+/docs/
 
 ### C ###
 # Prerequisites
@@ -176,9 +177,6 @@ instance/
 
 # Scrapy stuff:
 .scrapy
-
-# Sphinx documentation
-docs/_build/
 
 # PyBuilder
 .pybuilder/
